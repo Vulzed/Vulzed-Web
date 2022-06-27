@@ -2,7 +2,7 @@ import { useState, useCallback, useRef, useEffect } from 'react'
 import { useTransition, animated } from '@react-spring/web'
 
 // @ts-ignore
-import styles from './styles.module.css';
+import './Animation.scss';
  function TextEntrance() {
 
     const ref = useRef<ReturnType<typeof setTimeout>[]>([])
@@ -28,9 +28,9 @@ import styles from './styles.module.css';
         ref.current.forEach(clearTimeout)
         ref.current = []
         set([])
-        ref.current.push(setTimeout(() => set(['Apples', 'Oranges', 'Kiwis']), 2000))
-        ref.current.push(setTimeout(() => set(['Apples', 'Kiwis']), 5000))
-        ref.current.push(setTimeout(() => set(['Apples', 'Bananas', 'Kiwis']), 8000))
+        ref.current.push(setTimeout(() => set(['Ease of use, Privacy, Open-Source']), 2000))
+        ref.current.push(setTimeout(() => set(['For everyone, Open-Source']), 5000))
+        ref.current.push(setTimeout(() => set(['Free to use, Non-Profit']), 8000))
     }, [])
 
     useEffect(() => {
@@ -39,10 +39,10 @@ import styles from './styles.module.css';
     }, [])
 
     return (
-        <div className={styles.container}>
-            <div className={styles.main}>
+        <div className="container">
+            <div className="main">
                 {transitions(({ innerHeight, ...rest }, item) => (
-                    <animated.div className={styles.transitionsItem} style={rest} onClick={reset}>
+                    <animated.div className={"transitionsItem"} style={rest} onClick={reset}>
                         <animated.div style={{ overflow: 'hidden', height: innerHeight }}>{item}</animated.div>
                     </animated.div>
                 ))}
