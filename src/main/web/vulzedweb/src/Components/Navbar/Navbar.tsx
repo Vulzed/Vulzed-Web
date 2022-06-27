@@ -1,9 +1,11 @@
 import {Button, Container} from "@mantine/core";
 import React from "react";
-import {Link} from "react-router-dom";
-import '../Styles/Navbar.scss';
+import {Link, useNavigate} from "react-router-dom";
+import './Navbar.scss';
 
 function Navbar() {
+
+
     return (
         <header className="Navbar-header">
 
@@ -14,7 +16,7 @@ function Navbar() {
                 <ul className="Navbar">
                     <Container>
                         <Button>
-                            <li>
+                            <li className="Home">
                                 <Link to="/">Home</Link>
                             </li>
                         </Button>
@@ -29,7 +31,7 @@ function Navbar() {
                 </ul>
             </nav>
             <div className="right">
-                <a href="#">Welcome</a>
+                <a href="src/Components/Navbar/Navbar#">Welcome</a>
             </div>
         </header>
 

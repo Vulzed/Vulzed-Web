@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import {Button, MantineProvider} from '@mantine/core';
-import logo from '../logo.svg'
-import '../Styles/Home.scss'
+import logo from '../../logo.svg'
+import './Home.scss'
 
 function Home() {
     const [count, setCount] = useState(0)
