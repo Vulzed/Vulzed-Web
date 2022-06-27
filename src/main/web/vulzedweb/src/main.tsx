@@ -4,7 +4,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Layout from './Pages/Layout';
 import NoPage from "./Pages/NoPage";
 import Login from "./Pages/Login";
-import './index.css';
+import './index.scss';
 import Home from "./Pages/Home";
 
 function Main(){
