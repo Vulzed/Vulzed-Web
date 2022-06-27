@@ -3,6 +3,7 @@ import {Routes, Route} from "react-router-dom";
 import Layout from "./Layout";
 const Home = React.lazy(() => import('./Pages/Home/Home'));
 const Login = React.lazy(() => import('./Pages/Login/Login'));
+const Download = React.lazy(() => import('./Pages/Download/Download'));
 import Loading from "./Pages/Loading/Loading";
 import NoPage from "./Pages/NoPage/NoPage";
 
@@ -15,6 +16,7 @@ export default function RoutesPage() {
                 <Route path="/" element={<Layout/>}>
                     <Route index element={<Home/>}/>
                     <Route path="login" element={<Login/>}/>
+                    <Route path="download" element={<Download/>}/>
                     <Route path="*" element={<NoPage/>}/>
                 </Route>
             </Routes>
