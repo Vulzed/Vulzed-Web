@@ -1,18 +1,13 @@
 import React from "react";
-import {Button} from '@mantine/core';
+import {Button, Center} from '@mantine/core';
 
 function Login() {
     return (
-
        <div>
+           <Center>
         <Button>Login</Button>
-
+           </Center>
        </div>
-
-
-
-
-
     )
 }
 

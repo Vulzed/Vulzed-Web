@@ -1,6 +1,6 @@
-import {Button, Container} from "@mantine/core";
+import {Button, Grid} from "@mantine/core";
 import React from "react";
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import './Navbar.scss';
 
 function Navbar() {
@@ -10,29 +10,30 @@ function Navbar() {
         <header className="Navbar-header">
 
             <div className="Left">
-                <p>Vulzed</p>
+                <li>
+                    <Link to="/"><Button></Button></Link>
+                </li>
             </div>
             <nav className="Mid">
                 <ul className="Navbar">
-                    <Container>
-                        <Button>
-                            <li className="Home">
-                                <Link to="/">Home</Link>
-                            </li>
-                        </Button>
-                    </Container>
-                    <Container>
-                        <Button>
-                            <li>
-                                <Link to="/login">Login</Link>
-                            </li>
-                        </Button>
-                    </Container>
+                    <Grid gutter={60}>
+                        <Grid.Col span={4}>
+
+
+                            <Link to="/"><Button>Home</Button></Link>
+
+
+                        </Grid.Col>
+                        <Grid.Col span={4}>
+
+
+                            <Link to="/login"><Button>Login</Button></Link>
+
+
+                        </Grid.Col>
+                    </Grid>
                 </ul>
             </nav>
-            <div className="right">
-                <a href="src/Components/Navbar/Navbar#">Welcome</a>
-            </div>
         </header>
 
 

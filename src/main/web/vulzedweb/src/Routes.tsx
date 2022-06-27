@@ -1,13 +1,16 @@
-import React, { Component } from "react";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import React, {Suspense} from "react";
+import {Routes, Route} from "react-router-dom";
 import Layout from "./Layout";
-import Home from "./Pages/Home/Home";
-import Login from "./Pages/Login/Login";
+const Home = React.lazy(() => import('./Pages/Home/Home'));
+const Login = React.lazy(() => import('./Pages/Login/Login'));
+import Loading from "./Pages/Loading/Loading";
 import NoPage from "./Pages/NoPage/NoPage";
 
 export default function RoutesPage() {
 
         return (
+            <Suspense fallback={<Loading />}>
+
             <Routes>
                 <Route path="/" element={<Layout/>}>
                     <Route index element={<Home/>}/>
@@ -15,6 +18,7 @@ export default function RoutesPage() {
                     <Route path="*" element={<NoPage/>}/>
                 </Route>
             </Routes>
+            </Suspense>
         );
     }
 

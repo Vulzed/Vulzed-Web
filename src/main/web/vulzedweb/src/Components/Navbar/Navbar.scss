@@ -1,14 +1,24 @@
+.Left {
+  Card {
+
+  }
+
+}
+
 .Navbar {
   color: aquamarine;
   display: grid;
   grid-gap: 5px;
   grid-template-columns: auto auto 0.5px auto auto;
+  Button {
+    border-radius: 20px;
+  }
 }
 .Mid {
 
   float: right;}
 
 
-.Home:hover {
-  color: red;
+.Left {
+  float: left;
 }
