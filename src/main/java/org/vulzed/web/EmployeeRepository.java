@@ -1,4 +1,4 @@
-package org.vulzed.backendtut;
+package org.vulzed.web;
 
 import org.springframework.data.repository.CrudRepository;
 

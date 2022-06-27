@@ -1,10 +1,10 @@
-package org.vulzed.backendtut;
+package org.vulzed.web;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BackendtutApplicationTests {
+class webApplicationTests {
 
     @Test
     void contextLoads() {
