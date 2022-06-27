@@ -16,7 +16,7 @@ export default function RoutesPage() {
                 <Route path="/" element={<Layout/>}>
                     <Route index element={<Home/>}/>
                     <Route path="login" element={<Login/>}/>
-                    <Route path="download" element={<Download/>}/>
+                    <Route path="download" element={<Download/>}/>q
                     <Route path="*" element={<NoPage/>}/>
                 </Route>
             </Routes>
