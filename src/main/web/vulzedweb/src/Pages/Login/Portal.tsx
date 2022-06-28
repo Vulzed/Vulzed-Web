@@ -1,7 +1,7 @@
 import React from "react";
 import {Button, Center} from '@mantine/core';
 
-function Login() {
+function Portal() {
     return (
        <div>
            <Center>
@@ -11,4 +11,4 @@ function Login() {
     )
 }
 
-export default Login
+export default Portal

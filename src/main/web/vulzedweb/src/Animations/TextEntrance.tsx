@@ -1,54 +1,61 @@
-import { useState, useCallback, useRef, useEffect } from 'react'
-import { useTransition, animated } from '@react-spring/web'
+import React, {PureComponent} from 'react'
+import {animated} from '@react-spring/web'
+
 
 // @ts-ignore
 import './Animation.scss';
- function TextEntrance() {
+import {config, Transition} from "react-spring";
 
-    const ref = useRef<ReturnType<typeof setTimeout>[]>([])
-    const [items, set] = useState<string[]>([])
-    const transitions = useTransition(items, {
-        from: {
-            opacity: 0,
-            height: 0,
-            innerHeight: 0,
-            transform: 'perspective(600px) rotateX(0deg)',
-            color: '#8fa5b6',
-        },
-        enter: [
-            { opacity: 1, height: 80, innerHeight: 80 },
-            { transform: 'perspective(600px) rotateX(180deg)', color: '#28d79f' },
-            { transform: 'perspective(600px) rotateX(0deg)' },
-        ],
-        leave: [{ color: '#c23369' }, { innerHeight: 0 }, { opacity: 0, height: 0 }],
-        update: { color: '#28b4d7' },
-    })
+class TextEntrance extends PureComponent {
+    constructor() {
+        // @ts-ignore
+        super()
 
-    const reset = useCallback(() => {
-        ref.current.forEach(clearTimeout)
-        ref.current = []
-        set([])
-        ref.current.push(setTimeout(() => set(['Ease of use, Privacy, Open-Source']), 2000))
-        ref.current.push(setTimeout(() => set(['For everyone, Open-Source']), 5000))
-        ref.current.push(setTimeout(() => set(['Free to use, Non-Profit']), 8000))
-    }, [])
+        this.state = {
+            toggle: false,
+        }
+    }
 
-    useEffect(() => {
-        reset()
-        return () => ref.current.forEach(clearTimeout)
-    }, [])
-
-    return (
-        <div className="container">
-            <div className="main">
-                {transitions(({ innerHeight, ...rest }, item) => (
-                    <animated.div className={"transitionsItem"} style={rest} onClick={reset}>
-                        <animated.div style={{ overflow: 'hidden', height: innerHeight }}>{item}</animated.div>
-                    </animated.div>
-                ))}
-            </div>
-        </div>
-    )
+    render() {
+        // @ts-ignore
+        const {toggle} = this.state
+        return (
+            <Transition
+                items={toggle}
+                from={{opacity: 0}}
+                enter={{opacity: 1}}
+                leave={{opacity: 0}}
+                reverse={toggle}
+                delay={200}
+                config={config.molasses}
+                onRest={() =>
+                    this.setState({
+                        toggle: !toggle,
+                    })
+                }>
+                {({opacity}, item) =>
+                    item ? (
+                        <animated.div
+                            style={{
+                                position: 'absolute',
+                                opacity: opacity.to({range: [0.0, 1.0], output: [0, 1]}),
+                            }}>
+                            😄
+                        </animated.div>
+                    ) : (
+                        <animated.div
+                            style={{
+                                position: 'absolute',
+                                opacity: opacity.to({range: [1.0, 0.0], output: [0, 1]}),
+                            }}>
+                            🤪
+                        </animated.div>
+                    )
+                }
+            </Transition>
+        )
+    }
 }
+
 export default TextEntrance
 

@@ -15,7 +15,7 @@ function Navbar() {
                 <ul className="Navbar">
                     <Link to="/"><Button>Home</Button></Link>
                     <Link to="/download"><Button>Download</Button></Link>
-                    <Link to="/login"><Button>Login</Button></Link>
+                    <Link to="/portal"><Button>Portal</Button></Link>
                     <Space w={40}/>
                 </ul>
             </nav>
